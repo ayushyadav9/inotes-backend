@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const fetchuser = require("../midleware/fetchuser");
 
-const JWT_SECRET = "hellohowareyou";
+const JWT_SECRET = process.env.SECRET_KEY;
 
 
 //Route 1
