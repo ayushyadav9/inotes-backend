@@ -17,6 +17,20 @@ app.use(express.json())
 app.use('/api/auth',require('./routes/auth'))
 app.use('/api/notes',require('./routes/notes'))
 
+app.get('/', (req, res) => {
+  res.status(404).json({
+      message: 'Working!',
+      success:true
+  });
+});
+
+app.get('*', (req, res) => {
+  res.status(404).json({
+      message: 'Page Not Found',
+      success:false
+  });
+});
+
 if(process.env.NODE_ENV === 'production'){
   app.use(express.static('client/build'))
 }
